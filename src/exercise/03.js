@@ -8,6 +8,7 @@ import {Switch} from '../switch'
 // 📜 https://react.dev/reference/react/createContext
 
 const ToggleContext = React.createContext({});
+ToggleContext.displayName = 'ToggleContext';
 
 function useToggle() {
   const { on, toggle } = React.useContext(ToggleContext);
@@ -48,7 +49,7 @@ function ToggleButton({...props}) {
   return <Switch on={on} onClick={toggle} {...props} />
 }
 
-const App = () => <ToggleButton />
+const App = () => <Toggle><ToggleButton /></Toggle>
 
 export default App
 
