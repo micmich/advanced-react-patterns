@@ -4,7 +4,7 @@
 import * as React from 'react'
 import {Switch} from '../switch'
 
-function Toggle({children}) {
+function Toggle() {
   const [on, setOn] = React.useState(false)
   const toggle = () => setOn(!on)
 
@@ -14,33 +14,19 @@ function Toggle({children}) {
   // 💰 React.Children.map(props.children, child => {/* return child clone here */})
   // 📜 https://react.dev/reference/react/Children
   // 📜 https://react.dev/reference/react/cloneElement
-  return <>
-      { React.Children.map(children, (child) => {
-          return React.cloneElement(child, { on: on, toggle: toggle } )
-      }) }
-    </>
+  return <Switch on={on} onClick={toggle} />
 }
 
 // 🐨 Flesh out each of these components
 
 // Accepts `on` and `children` props and returns `children` if `on` is true
-const ToggleOn = ({on, children}) => {
-  return <>
-    { (on ? <div>{children}</div> : null) }
-  </>
-}
+const ToggleOn = () => null
 
 // Accepts `on` and `children` props and returns `children` if `on` is false
-const ToggleOff = ({on, children}) => {
-  return <>
-    { (!on ? <div>{children}</div> : null) }
-  </>
-}
+const ToggleOff = () => null
 
 // Accepts `on` and `toggle` props and returns the <Switch /> with those props.
-const ToggleButton = ({on, toggle}) => {
-  return <Switch on={on} onClick={toggle} />
-}
+const ToggleButton = () => null
 
 function App() {
   return (
